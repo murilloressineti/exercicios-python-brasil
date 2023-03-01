@@ -13,4 +13,4 @@ if litro % 18 != 0:
     latas += 1
 p = latas * 80
 
-print(f'Para uma área de {a}m² você precisará de {latas} latas de tinta (18L) e pagará R${p:.2f} ')
+print(f'Para uma área de {a}m² você precisará de {latas} lata(s) de tinta (18L) e pagará R${p:.2f} ')

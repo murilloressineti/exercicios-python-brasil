@@ -12,15 +12,27 @@ l = int(input('Largura: '))
 c = int(input('Comprimento: '))
 a = l*c
 
-litro = a/6
+litro = a/6 * 1.1
+
 
 latas = int(litro/18)
-if latas % 18 != 0:
+if litro % 18 != 0:
     latas += 1
 p = latas * 80
+print(f'Para uma área de {a}m² você precisará de {latas} lata(s) de tinta (18L) e pagará R${p:.2f} ')
 
-galoes = (litro/3.6)
-if galoes % 3.6 != 0:
+galoes = int(litro/3.6)
+if litro % 3.6 != 0:
     galoes += 1
 pg = galoes * 25
+print(f'Para uma área de {a}m² você precisará de {galoes} galão(ões) de tinta (3,6L) e pagará R${pg:.2f} ')
 
+mixlatas = int(litro/18)
+mixgaloes = int((litro - mixlatas * 18) / 3.6)              # <- Tive dificuldade pra entender essa divisão
+if ((litro - (mixlatas * 18) % 3.6 != 0 )):
+    mixgaloes += 1
+    preco_mix = (mixlatas * 80) + (mixgaloes * 25)
+
+print(f'Se você deseja misturar latas e galões para econimizar, '
+      f'para uma área de {a}m² você precisará de {mixlatas} lata(s) de tinta (18L) '
+      f'e {mixgaloes} galão(ões) de tinta (3,6L) e pagará R${preco_mix:.2f}')
